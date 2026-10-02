@@ -221,6 +221,9 @@ void AABCharacterPlayer::SetCharacterControl(
 			);
 		}
 	}
+
+	// 변경된 캐릭터 컨트롤 값으로 업데이트.
+	CurrentCharacterControlType = NewCharacterControlType;
 }
 
 void AABCharacterPlayer::SetCharacterControlData(const UABCharacterControlData* InCharacterControlData)
