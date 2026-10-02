@@ -50,7 +50,7 @@ AABCharacterPlayer::AABCharacterPlayer()
 
 	// 메시 애셋 지정.
 	static ConstructorHelpers::FObjectFinder<USkeletalMesh> CharacterMesh(
-		TEXT("/Game/Characters/Mannequins/Meshes/SKM_Manny_Simple.SKM_Manny_Simple")
+		TEXT("/Game/InfinityBladeWarriors/Character/CompleteCharacters/SK_CharM_Cardboard.SK_CharM_Cardboard")
 	);
 
 	// 애셋 로드에 성공하면 스켈레탈 메시 설정.
@@ -61,7 +61,7 @@ AABCharacterPlayer::AABCharacterPlayer()
 
 	// 애님 블루프린트 클래스 검색 및 설정.
 	static ConstructorHelpers::FClassFinder<UAnimInstance> CharacterAnim(
-		TEXT("/Game/Characters/Mannequins/Anims/Unarmed/ABP_Unarmed.ABP_Unarmed_C")
+		TEXT("/Game/ArenaBattle/Animation/ABP_ABCharacter.ABP_ABCharacter_C")
 	);
 
 	// 검색에 성공하면 클래스 정보 설정.
@@ -212,6 +212,9 @@ void AABCharacterPlayer::SetCharacterControl(
 
 		if (InputSystem)
 		{
+			// 기존 설정된 입력 매핑 컨텍스트 제거.
+			InputSystem->ClearAllMappings();
+
 			InputSystem->AddMappingContext(
 				NewCharacterControl->InputMappingContext,
 				0
@@ -288,6 +291,7 @@ void AABCharacterPlayer::QuaterMove(const FInputActionValue& value)
 	// 컨트롤러 회전 설정.
 	// MakeFromX: 전달된 X벡터(앞방향) 벡터를 기반으로
 	// 회전(오리엔테이션) 행렬을 생성하는 함수.
+	//
 	Controller->SetControlRotation(
 		FRotationMatrix::MakeFromX(MoveDirection).Rotator()
 	);
