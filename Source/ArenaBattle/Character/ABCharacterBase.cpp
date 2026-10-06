@@ -192,3 +192,7 @@ void AABCharacterBase::ComboCheck()
 		}
 	}
 }
+
+void AABCharacterBase::AttackHitCheck()
+{
+}
