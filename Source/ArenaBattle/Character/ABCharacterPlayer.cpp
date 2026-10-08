@@ -40,7 +40,7 @@ AABCharacterPlayer::AABCharacterPlayer()
 	// 무브먼트 컴포넌트 설정.
 	GetCharacterMovement()->bOrientRotationToMovement = true;
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 720.0f, 0.0f);
-	GetCharacterMovement()->JumpZVelocity = 800.0f;
+	GetCharacterMovement()->JumpZVelocity = 500.0f;
 
 	// 매시 컴포넌트 설정.
 	GetMesh()->SetRelativeLocationAndRotation(
